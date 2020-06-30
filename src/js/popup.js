@@ -56,8 +56,8 @@ const initPopupScript = () => {
         port = chrome.tabs.connect(tab.id, { name: 'chrome-extension-template' });
         // Set up the message listener
         port.onMessage.addListener(messageHandler);
-        // Send a test message to in-content.js
-        sendPortMessage('Message from popup!');
+
+        sendPortMessage({url: tab.url});
     });
 };
 
