@@ -11,10 +11,17 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     });
 });
 
+// chrome.webNavigation.onHistoryStateUpdated.addListener(details => {
+//     chrome.tabs.query({ active: true }, function(tabs) {
+//         chrome.tabs.sendMessage(tab.id, { url: details.url }, function(response) {});
+//     });
+// });
+
 // Listen to short lived messages from in-content.js
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Perform any ther actions depending on the message
     console.log('background.js - received message from in-content.js:', message);
+
     // Respond message
     sendResponse('👍');
 });
